@@ -13,6 +13,7 @@ namespace VGMToolbox.format
         public const string HcaAudioExtension = ".hca";
 
         static readonly byte[] HCA_SIG_BYTES = new byte[] { 0x48, 0x43, 0x41, 0x00 };
+        static readonly byte[] HCA_ENC_SIG_BYTES = new byte[] { 0xC8, 0xC3, 0xC1, 0x00 };
 
         protected static readonly byte[] ALP_BYTES = new byte[] { 0x40, 0x41, 0x4C, 0x50 };
         protected static readonly byte[] CRID_BYTES = new byte[] { 0x43, 0x52, 0x49, 0x44 };
@@ -186,7 +187,7 @@ namespace VGMToolbox.format
                     {
                         fileExtension = SofdecStream.AdxAudioExtension;
                     }
-                    else if (ParseFile.CompareSegment(checkBytes, 0, HCA_SIG_BYTES))
+                    else if (ParseFile.CompareSegment(checkBytes, 0, HCA_SIG_BYTES) | ParseFile.CompareSegment(checkBytes, 0, HCA_ENC_SIG_BYTES))
                     {
                         fileExtension = HcaAudioExtension;
                     }                    

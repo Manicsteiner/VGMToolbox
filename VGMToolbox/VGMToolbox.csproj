@@ -17,6 +17,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -79,14 +80,18 @@
     <ManifestKeyFile>VGMToolbox_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>VGMToolbox.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>3rd\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -96,6 +101,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -1427,7 +1433,6 @@
     <None Include="Resources\toolbox.bmp" />
     <None Include="Resources\ToolBox-2.ico" />
     <None Include="Resources\fs.jpg" />
-    <None Include="VGMToolbox_TemporaryKey.pfx" />
     <None Include="xsd\datafile.dtd" />
     <None Include="xsd\datafile.xsd" />
     <None Include="xsd\hoot.dtd" />
@@ -1480,6 +1485,7 @@ move System.Data.SQLite.dll ".\lib\System.Data.SQLite.dll"
 move System.Data.SQLite.xml ".\lib\System.Data.SQLite.xml"
 del *.pdb
 del "Bass.Net.dll"
-del "Bass.Net.xml"</PostBuildEvent>
+del "Bass.Net.xml"
+del "vgmtutil.dll.config"</PostBuildEvent>
   </PropertyGroup>
 </Project>
