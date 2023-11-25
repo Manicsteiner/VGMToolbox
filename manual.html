@@ -1,0 +1,660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+  <HEAD>	
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html">	
+    <TITLE>
+    </TITLE>		
+
+    <style type="text/css">
+    ol {
+        list-style: decimal;
+    }
+    ol ol {
+        list-style: lower-alpha;
+    }
+    ol ol ol {
+        list-style: lower-roman;
+    }
+    </style>
+  </HEAD>
+  <BODY LANG="en-US" DIR="LTR">
+    <P ALIGN=CENTER><U><B>VGMToolbox &ndash; Manual</B></U></P>
+    <P ALIGN=LEFT>VGMToolbox (VGMT) is an application to aid in the auditing of yourVideo Game Music (VGM) 
+    collections.  Inspired by rom organizers like clrMAMEPro and the GoodTools applications, VGMT aims 
+    to offer the best of both tools while focusing on VGM related file types (NSF,PSF, etc...).  The key 
+    feature of the VGMT is the ability to calculate checksums over the actual data of each of these formats. 
+    VGMT also offers various tools that aid the VGM collector, datafile creator, and music ripper.</P>
+
+    <hr><hr>
+    <P ALIGN=CENTER><U><B>Supported Formats for VGMToolbox Methods Checksums</B></U></P><br />
+    VGMToolbox can calculate the checksums of the actual data of certain emulated music formats.
+    This is useful for identifying files that are duplicates but have different tags or
+    internal compression.  The following formats can be examined using the VGMToolbox method checksums:
+    <br><br>
+    GBR, GBS, GENH, KSS (KSSC variant only), MDX, NSF, NSFE, PSID, S98 (v1 and v3 only), SPC (v0.30 only), VGM, 
+    <b>xSF</b> (2SF. DSF, GSF, MDSF, PSF, PSF2, QSF, SNSF, SSF, USF)  
+    <hr>
+    
+    <hr>
+    <P ALIGN=CENTER><U><B>Auditing Tools</B></U></P>
+    <hr><hr>
+
+    <!-- Datafile Creator -->
+    <p align=left><b>Auditing Tools &gt; Datafile Creator</b></p>
+    <p align=left><img src=".\images\datafile_creator.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- File Rebuilder -->
+    <p align=left><b>Auditing Tools &gt; File Rebuilder</b></p>
+    <p align=left><img src=".\images\file_rebuilder.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- Datafile Checker -->
+    <p align=left><b>Auditing Tools &gt; Datafile Checker</b></p>
+    <p align=left><img src=".\images\datafile_checker.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+
+    <hr><hr>
+    <P ALIGN=CENTER><U><B>Examine/Exploration Tools</B></U></P>
+    <hr><hr>
+
+    <!-- Tag/Info Viewer -->
+    <p align=left><b>Examine/Exploration Tools &gt; Tag/Info Viewer</b></p>
+    <p align=left><img src=".\images\taginfo_viewer.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- Checksum Calculator -->
+    <p align=left><b>Examine/Exploration Tools &gt; Checksum Calculator</b></p>
+    <p align=left><img src=".\images\checksum_calc.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- Search for Files -->
+    <p align=left><b>Examine/Exploration Tools &gt; Search for Files</b></p>
+    <p align=left><img src=".\images\search_for_files.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+
+
+    <hr><hr>
+    <P ALIGN=CENTER><U><B>GENH</B></U></P>
+    <hr><hr>
+
+    <!-- Create/Extract GENH -->
+    <p align=left><b>GENH &gt; Create/Extract GENH</b></p>
+    <p align=left><img src=".\images\genh.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+
+    <hr><hr>
+    <P ALIGN=CENTER><U><B>Misc. Tools</B></U></P>
+    <hr><hr>
+    
+    <!-- HOOT XML BUILDER -->
+    <p align=left><b>Hoot Tools &gt; XML Builder</b></p>
+    <p align=left><img src=".\images\hoot_xml.jpg" align=left><br clear=left></p>
+    <p><i>Description</i>:  The Hoot XML Builder generates skeleton XML files for the GBS/NSF/HES/KSS file formats.  
+      It can be useful for batch creation of Hoot xml files for GBS/NSF/HES/KSS files.  HES and KSS files require Nezplug format
+      .m3u files, since their format does not contain track information.  XML file(s) will be output
+      in the "hoot" subdirectory of the application folder.  
+    </p>
+    <p><i>Usage</i>:  Drag and Drop files or folders into the large area at the top of the form.</p>
+    <p><i>Options</i>: 
+      <ul>
+        <li><b>Parse file name according to Knurek style naming convention</b>: Will parse the file name and add data to the Hoot XML based on the following format: English Name [Japanese Name](Year)(Developer)(Publisher)</li>
+        <p>
+        <li><b>(At least one must be checked for output.)</b></li>
+        <li><b>Combine output to single XML file</b>: All XML will be output to a single file (combined).</li>
+        <li><b>Output one file per game</b>: A single XML file will be generated for each input game.</li>
+      </ul>   
+    </p>
+
+    <hr>
+
+    <!-- HOOT COLLECTION AUDITOR -->
+    <p align=left><b>Hoot Tools &gt; Collection Auditor</b></p>
+    <p align=left><img src=".\images\hoot_audit.jpg" align=left><br clear=left></p>
+    <p><i>Description</i>: The Hoot Collection Auditor scans the "Archive Folders" for each set in the source
+    .xml files in your Hoot XML Folder.  It should be used to see which Hoot sets or games have .xml availible
+    but you do not have the sets for. The results will be displayed in a Tree Format with missing files in red.
+    Results will also be output to the "hoot" subdirectory underneath VGMToolbox as a UTF-16 LE text file named
+    "audit.txt". 
+    </p>
+    <p><i>Usage</i>:</li>
+      <ol>
+        <li>Type or Browse to the Hoot XML Folder.</li>
+        <li>Type or Browse to the folders containing your sets.  (More than one may be entered and subdirectories are supported.)</li>
+        <li>Click the "Audit Collection" button.</li>
+      </ol>
+    </p>
+
+    <hr>
+    
+    <!-- NSFE2M3U -->
+    <p align=left><b>NSF Tools &gt; NSFE --> NSF + M3U</b></p>
+    <p align=left><img src=".\images\nsf_nsfe2m3u.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>:  The NSFE to .m3u converter takes an NSFE format file and creates an NSF with an Nezplug 
+    format .m3u playlist.  The files will be output in the same directory as the source file.   
+    </p>
+    <p><i>Usage</i>:  Drag and Drop files or folders into the large area at the top of the form.</li></p>
+    <p><i>Options</i>: 
+      <ul>
+        <li><b>Output additional .m3u per track</b>: In addition to an .m3u for the all of the tracks, another .m3u will
+        be created for each track.</li>
+      </ul>   
+    </p>
+
+    <hr>
+    
+    <!-- GBSM3U -->
+    <p align=left><b>GBS Tools &gt; GBS M3U Creator</b></p>
+    <p align=left><img src=".\images\gbs_m3u.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>:  The GBS M3U Creator creates Nezplug format .m3u playlist for each track in the GBS.
+      The files will be output in the same directory as the source file.    
+    </p>
+    <p><i>Usage</i>:  Drag and Drop files or folders into the large area at the top of the form.</p>
+    <p><i>Options</i>: 
+      <ul>
+        <li><b>Output additional .m3u per track</b>: In addition to an .m3u for the all of the tracks, another .m3u will
+        be created for each track.</li>
+      </ul>   
+    </p>    
+
+    <hr>
+
+    <!-- VGM TAG EDITOR -->
+    <p align=left><b>VGM Tools &gt; VGM Tag Editor</b></p>
+    <p align=left><img src=".\images\vgm_tag.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>:  The VGM Tag Editor will add or edit the tags of VGM format files.  Output files will be
+    GZip'd if the input files were GZip'd.      
+    </p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Type or Browse to the Source Folder.</li>
+        <li>Select one or more files to edit.  If multiple files are selected, the "Track Tags" will be disabled.</li>
+        <li>Click "Update Tags".</li>
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li>Right-Click and select "Refresh File List" to referesh the file list.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- XSF2EXE -->
+    <p align=left><b>xSF Tools &gt; xSF2EXE</b></p>
+    <p align=left><img src=".\images\xsf2exe.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>: Decompress and extract the Compressed Data Section (and Reserved Section if the option is selected) 
+    of an xSF format file.  The data will be extracted to the same directory as the source file with the ".data.bin"
+    and ".reserved.bin" file extensions appended.
+    </p>
+    <p><i>Usage</i>:  Drag and Drop files or folders into the large area at the top of the form.</p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>Also extract Reserved Section</b>: Extract the Reserved Section from the xSF file.</li>
+        <li><b>Include original file extension in output file name</b>: When generating the output file, include the original 
+        file's extension in the output file name.</li>
+        <li><b>Strip GSF header after decompression</b>: Strip the first 12 bytes of the output Data Section.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- XSF RECOMPRESS -->
+    <p align=left><b>xSF Tools &gt; xSF Recompress</b></p>
+    <p align=left><img src=".\images\xsf_recomp.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>: Recompress the Compressed Data Section of an xSF format file.
+    Optionally, 7zip the output.
+    </p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Select a new Compression Level.</li>
+        <li>Check the option to 7zip if desired.</li>
+        <li>Browse to select a folder to compress and click "Recompress xSFs" button, or drag and drop files onto the Source text box</li>
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>7zip (ultra) top level folder(s) (if applicable)</b>: 7zips the top level folders.  
+        Best compression is achieved with "Store" level compression and 7zipping the output folders.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- XSF TAG EDITOR -->
+    <p align=left><b>xSF Tools &gt; xSF Tag Editor</b></p>
+    <p align=left><img src=".\images\xsf_tag.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>:  The xSF Tag Editor will add or edit the tags of xSF format files 
+    or files that use the xSF style tags (S98v3).
+    </p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Type or Browse to the Source Folder.</li>
+        <li>Select one or more files to edit.  If multiple files are selected, the "Track Tags" will be disabled.</li>
+        <li>Click "Update Tags".</li>
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>Generate Title from FileName</b>: Auto-Generate Track Titles based on the input file names.
+        Works similar to the psfpoint "-tf" option.</li>
+        <li><b>Remove fields you've left empty from the files' tags.</b>: This will remove the internal structure
+        representing the tag from the file if you have not entered a value for the respective tag.</li>
+        <li>Right-Click and select "Refresh File List" to referesh the file list.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- Make 2SFs -->
+    <p align=left><b>xSF Tools &gt; 2SF &gt; Make 2SFs</b></p>
+    <p align=left><img src=".\images\make_2sf.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>: Create 2SF files for the input NDS SDAT file.  STRM files will also be extracted.
+    <b>The 2SF Maker requires testpack.nds which is a part of the "no-brainer" 2SF ripkit. Place it in the
+    directory indicated in the Notes section at the bottom of the form.</b>  Duplicates will be
+    unchecked automatically and the row will be highlighted in Red.
+    </p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Type or Browse to the SDAT containing the music.</li>
+        <li>Type or Browse to the folder to output the files into.</li>
+        <li>Enter set information.</li>
+        <li>Select the tracks to rip or use the preselected tracks.</li>
+        <li>Click on the "Volume" column to edit track volume if needed.</li>
+        <li>Click the "Make 2SFs" button.</li>
+      </ol>
+    </p>   
+    <hr>
+
+    <!-- 2SF Timer -->
+    <p align=left><b>xSF Tools &gt; 2SF &gt; 2SF Timer</b></p>
+    <p align=left><img src=".\images\2sf_timer.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>:  Time 2SF files.  Works with V2 2SFs only.
+    </p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Type or Browse to the 2SFs Source Folder.</li>
+        <li>Type or Browse to the SDAT file path.</li>        
+        <li>Click "Time 2SFs".</li>
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>Single Loop (leave unchecked for two loops)</b>: Check if you only want looped files to loop once.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- SDAT Optimizer -->
+    <p align=left><b>xSF Tools &gt; 2SF &gt; SDAT Optimizer (Removal Pending)</b></p>
+    <p align=left><img src=".\images\sdat_opt.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>:  Optimize SDATs for 2SF creation.  Overwrites unsed data with "0" to allow 
+    zlib compression to have maximum effect.
+      <b>Now that the "Make 2SF" tool does this automatically and with better selection, this tool is less useful.</b>
+    </p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Select sequences to include.</li>
+        <li>Drag and Drop SDAT to optimize onto the text box at the top of the form.</li>        
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>Starting Sequence</b>: First Sequence to include.</li>
+        <li><b>Ending Sequence</b>: Last Sequence to include.</li>
+        <li><b>Include All Sequences</b>: Include all sequences, only STRM data will be optimized.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- 2SF - V1 to V2 Tag Copier -->
+    <p align=left><b>xSF Tools &gt; 2SF &gt; 2SF - V1 to V2 Tag Copier</b></p>
+    <p align=left><img src=".\images\2sf_tag_copy.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>: Copy tags from V1 formats 2SFs to V2 format tags.</p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Type or Browse to the V1 2SFs Source Folder.</li>
+        <li>Type or Browse to the V2 2SFs Source Folder.</li>
+        <li>Select the tag items to copy.</li>
+        <li>Click the "Copy Tags" button..</li>        
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>Default</b>: Checks the default tag items to copy.</li>
+        <li><b>Check All</b>: Checks all tag items to copy.</li>
+        <li><b>Check None</b>: Checks none of the tag items to copy.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- PSF Maker -->
+    <p align=left><b>xSF Tools &gt; PSF &gt; PSF Maker</b></p>
+    <p align=left><img src=".\images\psf_make.jpg" align=left><br clear=left></p>    
+    <p><i>Description</i>: Create PSFs in batch mode.  Imports SEQ/VH/VB data from the Source Files folder 
+    into the Driver.  Be sure matching SEQ/VH/VB have the same file name (e.g. BGM01.SEQ, BGM01.VH, BGM01.VB).</p>
+    <p><i>Usage</i>:
+      <ol>
+        <li>Type or Browse to the Driver Path.</li>
+        <li>Type or Browse to the Source Folder.</li>
+        <li>Type the name of the Output Folder. (This will be underneath VGMToolbox in "rips\psf").</li>
+        <li>Enter the PSFLib name if making .minipsfs.</li>
+        <li>Enter the values for the SEQ/VH/VB Offsets or use the "Generic Driver" presets at the top.</li>
+        <li>Click the "Make PSFs" button..</li>        
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+        <li><b>Output .minipsfs</b>: Output .minipsf files with _lib tags pointing to the "PSFLib Name" file.</li>
+        <li><b>Allow Zero Length Sequences</b>: Allow zero length sequences, good for creating PSFLibs.</li>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- PSF Stub Creator -->
+    <p align=left><b>xSF Tools &gt; PSF &gt; PSF Stub Creator</b></p>
+    <p align=left><img src=".\images\psf_stub.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- PSF Timer -->
+    <p align=left><b>xSF Tools &gt; PSF &gt; PSF Timer</b></p>
+    <p align=left><img src=".\images\psf_timer.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- mkpsf2 Front End -->
+    <p align=left><b>xSF Tools &gt; PSF2 &gt; mkpsf2 Front End</b></p>
+    <p align=left><img src=".\images\mkpsf2fe.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- PSF2 Unpacker -->
+    <p align=left><b>xSF Tools &gt; PSF2 &gt; PSF2 Unpacker</b></p>
+    <p align=left><img src=".\images\psf2_unpacker.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>: Unpack PSF2 Files.</p>
+    <p><i>Usage</i>: Drag and Drop PSF2 to unpack onto the large box on the form.</p>   
+    <hr>
+
+    <!-- PSF2 to PSF2Lib -->
+    <p align=left><b>xSF Tools &gt; PSF2 &gt; PSF2 to PSF2LIB</b></p>
+    <p align=left><img src="" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- PSF2 SQ Extractor -->
+    <p align=left><b>xSF Tools &gt; PSF2 &gt; PSF2 SQ Extractor</b></p>
+    <p align=left><img src=".\images\psf2_sq_extractor.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>: Extract the SQ from PSF2s.</p>
+    <p><i>Usage</i>: Drag and Drop PSF2 to extract SQs from onto the large box on the form.</p>   
+    <hr>
+
+    <!-- PSF2 Timer -->
+    <p align=left><b>xSF Tools &gt; PSF2 &gt; PSF2 Timer</b></p>
+    <p align=left><img src=".\images\psf2_timer.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- ssfmake Front End -->
+    <p align=left><b>xSF Tools &gt; SSF &gt; ssfmake Front End</b></p>
+    <p align=left><img src=".\images\ssfmake.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- seqext.py/tonext.py Front End -->
+    <p align=left><b>xSF Tools &gt; SSF &gt; seqext.py/tonext.py Front End</b></p>
+    <p align=left><img src=".\images\seqext_tonext.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- Simple Cutter -->
+    <p align=left><b>Extraction Tools &gt; Generic &gt; Simple Cutter (Snakebite GUI)</b></p>
+    <p align=left><img src=".\images\simple_cutter.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>: The Simple Cutter will extract chunks from a file (or files) according to the input rules.
+    </p>
+    <p><i>Usage</i>:
+      <ol>      
+        <li>Enter the Cut Options (be sure to prefix all hexidecimal values with '0x')
+          <ol>      
+            <li>Enter the Start Address to begin the cut.</li>
+            <li>Select the Cut Length radio button for the type of cut you would like to use:</li>        
+              <ol>      
+                <li>End Address: Enter a specific address to end the file cut.  Cut file will include [Start Address - End Address]</li>
+                <li>Length: Enter the number of bytes to cut. Cut file will include [Start Address - (Start Address + Length Bytes)]</li>
+                <li>EOF: Read until the End of File, good for removing a static sized header.  Cut file will include [Start Address - End of File]</li>                      
+              </ol>          
+          </ol>
+        </li>
+        <li>Select 'Single File Mode' or 'Batch Mode'.
+          <ol>
+            <li>Single File Mode: Select this if you will only be cutting one file with these settings.</li>
+              <ol>
+                <li>ADD THIS!!!</li>
+              </ol>
+            <li>Batch Mode: Select this if you will be cutting multiple files with these settings.</li>
+              <ol>
+                <li>Enter the "Output File Extension" for the cut files, including the leading period '.'.  The file name will be based on the original file name.</li>
+              </ol>
+          </ol>
+        </li>
+        <li>ADD THIS!!!</li>  
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- Advanced Cutter/Offset Finder -->
+    <p align=left><b>Extraction Tools &gt; Generic &gt; Advanced Cutter/Offset Finder</b></p>
+    <p align=left><img src=".\images\advanced_cutter.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- CD-XA Extractor -->
+    <p align=left><b>Extraction Tools &gt; Generic &gt; CD-XA Extractor</b></p>
+    <p align=left><img src=".\images\cdxa_extractor.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- MIDI Extractor -->
+    <p align=left><b>Extraction Tools &gt; Generic &gt; MIDI Extractor</b></p>
+    <p align=left><img src=".\images\midi_extractor.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- SDAT Extractor -->
+    <p align=left><b>Extraction Tools &gt; Nintendo DS &gt; SDAT Extractor</b></p>
+    <p align=left><img src=".\images\sdat_extractor.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- SDAT Finder -->
+    <p align=left><b>Extraction Tools &gt; Nintendo DS &gt; SDAT Finder</b></p>
+    <p align=left><img src=".\images\sdat_finder.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- gzip Compress/Decompress -->
+    <p align=left><b>Compression Tools &gt; gzip Compress/Decompress</b></p>
+    <p align=left><img src=".\images\gzip_compress.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+    <!-- zlib Compress/Decompress -->
+    <p align=left><b>Compression Tools &gt; zlib Compress/Decompress</b></p>
+    <p align=left><img src=".\images\zlib_compress.jpg" align=left><br clear=left></p> 
+    <p><i>Description</i>:</p>
+    <p><i>Usage</i>:
+      <ol>      
+      </ol>
+    </p>   
+    <p><i>Options</i>:
+      <ul>
+      </ul>
+    </p>
+    <hr>
+
+  </BODY>
+</HTML>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Header -->
+  <xs:complexType name="Header">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="FormatName" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Author" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Header Size Method -->
+  <xs:simpleType name="HeaderSizeMethod">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="HeaderSizeValue" />
+      <xs:enumeration value="HeaderSizeOffset" />
+      <xs:enumeration value="FileCountValue" />
+      <xs:enumeration value="FileCountOffset" />
+      <xs:enumeration value="ReadHeaderToEof" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- File Offset Method -->
+  <xs:simpleType name="FileOffsetLengthMethod">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="offset" />
+      <xs:enumeration value="length" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Endianess -->
+  <xs:simpleType name="Endianness">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="little" />
+      <xs:enumeration value="big" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Name Location -->
+  <xs:simpleType name="NameLocationType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="fileRecord" />
+      <xs:enumeration value="absoluteOffset" />
+      <xs:enumeration value="relativeOffset" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Relative Location Type -->
+  <xs:simpleType name="RelativeLocationType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="fileRecordStart" />
+      <xs:enumeration value="fileRecordEnd" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Name Length -->
+  <xs:simpleType name="NameLengthType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="staticSize" />
+      <xs:enumeration value="terminator" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!--  Header/Table Parameters -->
+  <xs:complexType name="HeaderParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="HeaderSizeMethod" type="HeaderSizeMethod" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="HeaderEndsAtOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="HeaderSizeOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="HeaderSizeOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="HeaderSizeOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FileCountValue" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FileCountOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileCountOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileCountOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- File Record Parameters -->
+  <xs:complexType name="FileRecordParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+                  
+      <xs:element name="FileRecordsStartOffset" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FileRecordSize" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+            
+      <!-- File Offset Section -->
+      <xs:element name="FileOffsetMethod" type="FileOffsetLengthMethod" minOccurs="1" maxOccurs="1"/>
+      
+      <xs:element name="FileOffsetOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileOffsetOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileOffsetOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>            
+      <xs:element name="FileOffsetOffsetMultiplier" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileOffsetCalculation" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FileCutStartOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      
+      <!-- File Length Section -->
+      <xs:element name="FileLengthMethod" type="FileOffsetLengthMethod" minOccurs="1" maxOccurs="1"/>
+      
+      <xs:element name="FileLengthOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileLengthOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileLengthOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>            
+      <xs:element name="FileLengthMultiplier" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileLengthCalculation" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            
+      <!-- File Name Section -->
+      <xs:element name="ExtractFileName" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      
+      <!-- File Name Location -->      
+      <xs:element name="FileNameLocationType" type="NameLocationType" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FileNameOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FileNameAbsoluteOffsetOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameAbsoluteOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameAbsoluteOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FileNameRelativeOffsetOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameRelativeOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameRelativeOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameRelativeOffsetLocation" type="RelativeLocationType" minOccurs="0" maxOccurs="1"/>
+
+      <!-- File Name Size -->
+      <xs:element name="FileNameLengthMethod" type="NameLengthType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FileNameTerminator" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Top Level Definition -->
+  <xs:element name="VfsExtractorSettings">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="Header" type="Header" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="HeaderParameters" type="HeaderParameters" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="FileRecordParameters" type="FileRecordParameters" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="NotesOrWarnings" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

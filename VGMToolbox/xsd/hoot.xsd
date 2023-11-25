@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="gamelist">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="game" />
+        <xs:element ref="bind" />
+        <xs:element ref="childlists" />
+      </xs:choice>
+      <xs:attribute name="date" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="childlists">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="list" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="list" type="xs:string" />
+  <xs:element name="bind">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="exts" />
+        <xs:element ref="driver" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="options" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exts">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="ext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ext" type="xs:string" />
+  <xs:element name="game">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name" />
+        <xs:element ref="driver" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="driveralias" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="options" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="romlist" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="titlelist" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string" />
+  <xs:element name="driver">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="type" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="driveralias">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="type" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="options">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="option" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="option">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="value" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="romlist">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="rom" />
+      </xs:sequence>
+      <xs:attribute name="archive" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rom">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="type" type="xs:string" use="required" />
+          <xs:attribute name="offset" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="titlelist">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="title" />
+        <xs:element ref="range" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="code" type="xs:string" use="required" />
+          <xs:attribute name="type" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="range">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="min" type="xs:string" use="required" />
+          <xs:attribute name="max" type="xs:string" use="required" />
+          <xs:attribute name="extcode" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

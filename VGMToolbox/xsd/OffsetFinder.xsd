@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Header -->
+  <xs:complexType name="Header">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="FormatName" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Author" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Cut Style -->
+  <xs:simpleType name="CutStyle">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="static" />
+      <xs:enumeration value="offset" />
+      <xs:enumeration value="terminator" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Cut Style -->
+  <xs:simpleType name="Endianness">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="little" />
+      <xs:enumeration value="big" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--  Cut Parameters -->
+  <xs:complexType name="cutParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="CutStyle" type="CutStyle" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="StaticCutSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="CutSizeAtOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CutSizeOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CutSizeOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CutSizeMultiplier" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="UseModOffsetForTerminatorString" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ModOffsetForTerminatorStringDivisor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ModOffsetForTerminatorStringResult" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      
+      <xs:element name="TerminatorString" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TreatTerminatorStringAsHex" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IncludeTerminatorInSize" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Search Parameters -->
+  <xs:complexType name="SearchParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <!-- Criteria Section -->
+      <xs:element name="SearchString" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TreatSearchStringAsHex" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      
+      <xs:element name="StartingOffset" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="UseModOffsetForSearchString" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ModOffsetForSearchStringDivisor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ModOffsetForSearchStringResult" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <!-- Cut Options -->
+      <xs:element name="SearchStringOffset" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="OutputFileExtension" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="MinimumSizeForCutting" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      
+      <!-- Cut Size Options -->
+      <xs:element name="CutParameters" type="cutParameters" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="AddExtraBytes" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="AddExtraByteSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Top Level Definition -->
+  <xs:element name="OffsetFinderTemplate">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="Header" type="Header" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="SearchParameters" type="SearchParameters" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="NotesOrWarnings" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,133 @@
+=======================
+VGMToolbox Plugin Spec
+=======================
+-----------
+-- FORMS --
+-----------
+Forms should implement the VGMToolbox.plugin.AVgmtForm class.  It should call
+the base.backgroundWorker_Execute() function to perform its work.  It should
+pass a struct containing any needed info your 
+VGMToolbox.plugin.IVgmtBackgroundWorker class will need.  This interface can be 
+implemented easily by extending the System.ComponentModel.BackgroundWorker or
+the VGMToolbox.plugin.AVgmtDragAndDropWorker classes. See below for more details
+and suggestions.
+
+
+-- REQUIRED FUNCTIONS
+The required abstract functions to be implemented include:
+
+- protected override IVgmtBackgroundWorker getBackgroundWorker()
+
+  This should return a class that implements the 
+  VGMToolbox.plugin.IVgmtBackgroundWorker interface. See below for more details.
+
+- protected override string getCancelMessage()
+
+  This should return a string containing the message to be displayed when the
+  "Cancel" button is clicked.  Ideally, it should be stored in an external
+  .config file and retrieved using the System.Configuration functionality.
+  Although not required, that will allow for easy translation or updates in the
+  future.
+  
+  Some examples of the return values for this function include:
+    "Extracting SDAT(s)...Cancelled"
+    "Searching for SDATs...Cancelled" 
+
+- protected override string getCompleteMessage()
+
+  This should return a string containing the message to be displayed when the
+  processing is complete.  Ideally, it should be stored in an external .config 
+  file and retrieved using the System.Configuration functionality.  Although not 
+  required, that will allow for easy translation or updates in the future.
+  
+  Some examples of the return values for this function include:
+    "Extracting SDAT(s)...Complete"
+    "Searching for SDATs...Complete"
+
+- protected override string getBeginMessage()
+
+  This should return a string containing the message to be displayed when the
+  processing begins.  Ideally, it should be stored in an external .config file 
+  and retrieved using the System.Configuration functionality.  Although not 
+  required, that will allow for easy translation or updates in the future.
+  
+  Some examples of the return values for this function include:
+    "Extracting SDAT(s)...Begin"
+    "Searching for SDATs...Begin"
+    
+
+-- HELPER FUNCTIONS
+The following functions are availible in the VGMToolbox.plugin.AVgmtForm class
+for your use:
+
+- protected string browseForFile(object sender, EventArgs e)
+
+  This will display an OpenFileDialog to allow the user to select a file.  It 
+  will return the full path to the selected file.
+
+- protected string browseForFolder(object sender, EventArgs e)
+
+  This will display an FolderBrowserDialog to allow the user to select a 
+  directory.  It will return the full path to the selected directory.
+
+- protected bool checkTextBox(string pText, string pFieldName)
+
+  This function can be used to validate input.  pText should contain the .Text
+  value from a TextBox component.  pFieldName should contain the name of the 
+  field for use in the error message to be output.  It is common to simply pass
+  the .Text value of the label component to prevent the need for future updates 
+  should the value of the label change.
+
+- protected bool checkFileExists(string pPath, string pLabel)
+
+  This function can be used to validate that an input file exists.  pPath should 
+  contain the .Text value from a TextBox component.  pLabel should contain the 
+  name of the field for use in the error message to be output.  It is common to 
+  simply pass the .Text value of the label component to prevent the need for 
+  future updates should the value of the label change.
+
+- protected bool checkFolderExists(string pPath, string pLabel)
+
+  This function can be used to validate that an input directory exists.  pPath 
+  should contain the .Text value from a TextBox component.  pLabel should 
+  contain the name of the field for use in the error message to be output.  It 
+  is common to simply pass the .Text value of the label component to prevent the 
+  need for future updates should the value of the label change.
+
+- protected virtual void doDragEnter(object sender, DragEventArgs e)
+
+  This can be called from a local doDragEnter function if needed.
+  
+------------------------
+-- BACKGROUND WORKERS --
+------------------------
+-- VGMToolbox.plugin.AVgmtDragAndDropWorker
+
+  For drag and drop forms that accept folder/files, this class dramatically 
+  simplifies your implementation tasks.  It will automatically sort through the
+  source paths and handle directories and files as needed.  It will update the
+  progress bar and status messages as well.  The extending/implementing class
+  should include a implementation of IVgmtWorkerStruct for use with the
+  DoTaskForFile function.
+  
+  -- REQUIRED FUNCTIONS
+  
+  - protected abstract void DoTaskForFile(string pPath, 
+      IVgmtWorkerStruct pTaskStruct, DoWorkEventArgs e)
+      
+    This function should handle the processing for a single file. pTaskStruct
+    will be the struct passed to the   
+    VGMToolbox.plugin.AVgmtForm.backgroundWorker_Execute() function.
+    
+-- System.ComponentModel.BackgroundWorker
+
+  Similar to above, but the developer must implement the OnDoWork function...
+  
+  ... MORE TO COME ...
+  
+  
+-------------
+-- EXAMPLE --
+-------------
+-- VGMToolbox.plugin.AVgmtDragAndDropWorker
+  Let's walk through a sample from the VGMToolbox project.  

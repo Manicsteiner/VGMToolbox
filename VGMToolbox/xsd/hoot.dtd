@@ -1,0 +1,30 @@
+<!ELEMENT gamelist (game|bind|childlists)*>
+<!ATTLIST gamelist date CDATA #IMPLIED>
+<!ELEMENT childlists (list)*>
+<!ELEMENT list (#PCDATA)>
+<!ELEMENT bind (exts,driver,options?)>
+<!ELEMENT exts (ext)*>
+<!ELEMENT ext (#PCDATA)>
+<!ELEMENT game (name,driver,driveralias?,options?,romlist?,titlelist?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT driver (#PCDATA)>
+<!ATTLIST driver type CDATA #IMPLIED>
+<!ELEMENT driveralias (#PCDATA)>
+<!ATTLIST driveralias type CDATA #IMPLIED>
+<!ELEMENT options (option)*>
+<!ELEMENT option EMPTY>
+<!ATTLIST option name CDATA #REQUIRED
+	 value CDATA #REQUIRED>
+<!ELEMENT romlist (rom)*>
+<!ATTLIST romlist archive CDATA #IMPLIED>
+<!ELEMENT rom (#PCDATA)>
+<!ATTLIST rom type CDATA #REQUIRED
+	offset CDATA #IMPLIED>
+<!ELEMENT titlelist (title|range)*>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title code CDATA #REQUIRED
+				type CDATA #IMPLIED>
+<!ELEMENT range (#PCDATA)>
+<!ATTLIST range min CDATA #REQUIRED
+				max CDATA #REQUIRED
+				extcode CDATA #IMPLIED>

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3951D6E5-61BE-4D7C-A464-F44D98E9CE83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>format</RootNamespace>
+    <AssemblyName>format</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bass.Net, Version=2.4.4.0, Culture=neutral, PublicKeyToken=b7566c273e6ef480, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VGMToolbox\3rd\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Debug, Version=1.8.4.0, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Ionic.Zip.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VGMToolbox\format\Atrac3Plus.cs" />
+    <Compile Include="VGMToolbox\format\auditing\Datafile.cs" />
+    <Compile Include="VGMToolbox\format\BinkStream.cs" />
+    <Compile Include="VGMToolbox\format\brsar\Brsar.cs" />
+    <Compile Include="VGMToolbox\format\brsar\BrsarSymbSection.cs" />
+    <Compile Include="VGMToolbox\format\Cdxa.cs" />
+    <Compile Include="VGMToolbox\format\CriAcbFile.cs" />
+    <Compile Include="VGMToolbox\format\CriAfs2Archive.cs" />
+    <Compile Include="VGMToolbox\format\CriCpkArchive.cs" />
+    <Compile Include="VGMToolbox\format\CriUtfTable.cs" />
+    <Compile Include="VGMToolbox\format\ElectronicArtsMpcStream.cs" />
+    <Compile Include="VGMToolbox\format\HudsonHvqm4VideoStream.cs" />
+    <Compile Include="VGMToolbox\format\INoIntroHeaderFormat.cs" />
+    <Compile Include="VGMToolbox\format\iso\SonyPsVitaCartridge.cs" />
+    <Compile Include="VGMToolbox\format\MicrosoftExFatFileSystem.cs" />
+    <Compile Include="VGMToolbox\format\Nintendo3dsCtr.cs" />
+    <Compile Include="VGMToolbox\format\iso\NintendoWiiUOpticalDisc.cs" />
+    <Compile Include="VGMToolbox\format\MicrosoftAsfContainer.cs" />
+    <Compile Include="VGMToolbox\format\MicrosoftSecureTransactedFileSystem.cs" />
+    <Compile Include="VGMToolbox\format\MobiclipNdsStream.cs" />
+    <Compile Include="VGMToolbox\format\CriUsmStream.cs" />
+    <Compile Include="VGMToolbox\format\DvdVideoStream.cs" />
+    <Compile Include="VGMToolbox\format\Genh.cs" />
+    <Compile Include="VGMToolbox\format\Hes.cs" />
+    <Compile Include="VGMToolbox\format\hoot\HootCsv.cs" />
+    <Compile Include="VGMToolbox\format\hoot\HootGameList.cs" />
+    <Compile Include="VGMToolbox\format\IGd3TagFormat.cs" />
+    <Compile Include="VGMToolbox\format\iso\CdAudio.cs" />
+    <Compile Include="VGMToolbox\format\iso\CueSharp.cs" />
+    <Compile Include="VGMToolbox\format\iso\GreenBookCdi.cs" />
+    <Compile Include="VGMToolbox\format\iso\IDirectoryStructure.cs" />
+    <Compile Include="VGMToolbox\format\iso\IFileStructure.cs" />
+    <Compile Include="VGMToolbox\format\iso\Iso9660.cs" />
+    <Compile Include="VGMToolbox\format\iso\IVolume.cs" />
+    <Compile Include="VGMToolbox\format\iso\NintendoGameCube.cs" />
+    <Compile Include="VGMToolbox\format\iso\NintendoWiiOpticalDisc.cs" />
+    <Compile Include="VGMToolbox\format\iso\NullDcGdi.cs" />
+    <Compile Include="VGMToolbox\format\iso\Panasonic3do.cs" />
+    <Compile Include="VGMToolbox\format\iso\UnsupportedDiscFormat.cs" />
+    <Compile Include="VGMToolbox\format\iso\XDvdFs.cs" />
+    <Compile Include="VGMToolbox\format\IXsfTagFormat.cs" />
+    <Compile Include="VGMToolbox\format\Midi.cs" />
+    <Compile Include="VGMToolbox\format\MobiclipWiiStream.cs" />
+    <Compile Include="VGMToolbox\format\Mpeg1Stream.cs" />
+    <Compile Include="VGMToolbox\format\Mpeg2Stream.cs" />
+    <Compile Include="VGMToolbox\format\MpegStream.cs" />
+    <Compile Include="VGMToolbox\format\Nds.cs" />
+    <Compile Include="VGMToolbox\format\NintendoThpMovieStream.cs" />
+    <Compile Include="VGMToolbox\format\NintendoU8Archive.cs" />
+    <Compile Include="VGMToolbox\format\NintendoWad.cs" />
+    <Compile Include="VGMToolbox\format\Psf.cs" />
+    <Compile Include="VGMToolbox\format\PsxSequence.cs" />
+    <Compile Include="VGMToolbox\format\RacjinDsiStream.cs" />
+    <Compile Include="VGMToolbox\format\S98V3.cs" />
+    <Compile Include="VGMToolbox\format\sdat\Swar.cs" />
+    <Compile Include="VGMToolbox\format\sdat\Swav.cs" />
+    <Compile Include="VGMToolbox\format\SegaSaturnSequence.cs" />
+    <Compile Include="VGMToolbox\format\Sgc.cs" />
+    <Compile Include="VGMToolbox\format\SofdecStream.cs" />
+    <Compile Include="VGMToolbox\format\SonyPamStream.cs" />
+    <Compile Include="VGMToolbox\format\SonyPmfStream.cs" />
+    <Compile Include="VGMToolbox\format\SonyPspMpsStream.cs" />
+    <Compile Include="VGMToolbox\format\SonyPssStream.cs" />
+    <Compile Include="VGMToolbox\format\util\CdxaUtil.cs" />
+    <Compile Include="VGMToolbox\format\MobiclipStream.cs" />
+    <Compile Include="VGMToolbox\format\util\CriUtil.cs" />
+    <Compile Include="VGMToolbox\format\ElectronicArtsVp6Stream.cs" />
+    <Compile Include="VGMToolbox\format\util\FormatUtil.cs" />
+    <Compile Include="VGMToolbox\format\Gbr.cs" />
+    <Compile Include="VGMToolbox\format\Gbs.cs" />
+    <Compile Include="VGMToolbox\format\IEmbeddedTagsFormat.cs" />
+    <Compile Include="VGMToolbox\format\IFormat.cs" />
+    <Compile Include="VGMToolbox\format\IHootFormat.cs" />
+    <Compile Include="VGMToolbox\format\ISingleTagFormat.cs" />
+    <Compile Include="VGMToolbox\format\Kss.cs" />
+    <Compile Include="VGMToolbox\format\Kssx.cs" />
+    <Compile Include="VGMToolbox\format\Mdx.cs" />
+    <Compile Include="VGMToolbox\format\Nsf.cs" />
+    <Compile Include="VGMToolbox\format\Nsfe.cs" />
+    <Compile Include="VGMToolbox\format\Ps2SequenceData.cs" />
+    <Compile Include="VGMToolbox\format\Psf2.cs" />
+    <Compile Include="VGMToolbox\format\S98V1.cs" />
+    <Compile Include="VGMToolbox\format\Psid.cs" />
+    <Compile Include="VGMToolbox\format\sdat\Sdat.cs" />
+    <Compile Include="VGMToolbox\format\sdat\SdatFatSection.cs" />
+    <Compile Include="VGMToolbox\format\sdat\SdatFileSection.cs" />
+    <Compile Include="VGMToolbox\format\sdat\SdatInfoSection.cs" />
+    <Compile Include="VGMToolbox\format\sdat\SdatSymbSection.cs" />
+    <Compile Include="VGMToolbox\format\sdat\Smap.cs" />
+    <Compile Include="VGMToolbox\format\Spc.cs" />
+    <Compile Include="VGMToolbox\format\util\GenhUtil.cs" />
+    <Compile Include="VGMToolbox\format\IExtractableFormat.cs" />
+    <Compile Include="VGMToolbox\format\INezPlugPlaylistFormat.cs" />
+    <Compile Include="VGMToolbox\format\iso\CdRom.cs" />
+    <Compile Include="VGMToolbox\format\util\NezPlugUtil.cs" />
+    <Compile Include="VGMToolbox\format\util\NsfUtil.cs" />
+    <Compile Include="VGMToolbox\format\util\RiffUtil.cs" />
+    <Compile Include="VGMToolbox\format\util\SdatUtil.cs" />
+    <Compile Include="VGMToolbox\format\util\XsfUtil.cs" />
+    <Compile Include="VGMToolbox\format\Vgm.cs" />
+    <Compile Include="VGMToolbox\format\Wsr.cs" />
+    <Compile Include="VGMToolbox\format\XiphOrgOggContainer.cs" />
+    <Compile Include="VGMToolbox\format\XmvStream.cs" />
+    <Compile Include="VGMToolbox\format\Xsf.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\vgmtutil\vgmtutil.csproj">
+      <Project>{3CE76EEC-D3BC-4AB4-8C54-D2EAFFDADA47}</Project>
+      <Name>vgmtutil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="external\2sf\sseq2mid.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\bin2psf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\docs\Nintendo_Companys.txt" />
+    <Content Include="external\psf2\unpkpsf2.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psfpoint.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\EZPSF_V104.EXE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\listsig.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\MG_DRIVER_V25.SEQ.INFINITE.EXE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\MG_DRIVER_V300.SEQ.INFINITE.EXE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\MG_DRIVER_V422.SEQ.INFINITE.EXE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\minipsf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\sigfind.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf\sigfind2.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\wiiu\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\wii\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\bass.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\Bass.Net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\Bass.Net.xml">
+    </Content>
+    <Content Include="lib\bassmidi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\Ionic.Zip.Debug.dll" />
+    <Content Include="lib\Ionic.Zip.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\Ionic.Zip.License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\Ionic.Zip.XML" />
+    <Content Include="VGMToolbox\format\CueSharp.LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="external\psf\mk.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf\psfdrv.c">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf\sig.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

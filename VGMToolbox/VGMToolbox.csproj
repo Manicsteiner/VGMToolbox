@@ -1,0 +1,1463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A96D568-CB21-4E64-8FD2-849A8E2B2D4F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VGMToolbox</RootNamespace>
+    <AssemblyName>VGMToolbox</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>3rd\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="auditing\AuditingUtil.cs" />
+    <Compile Include="auditing\DatafileCheckerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="auditing\DatafileCreatorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="auditing\RebuilderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="controls\ByteSearchCalculatingOffsetDescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\ByteSearchCalculatingOffsetDescriptionControl.Designer.cs">
+      <DependentUpon>ByteSearchCalculatingOffsetDescriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\CalculatingOffsetDescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\CalculatingOffsetDescriptionControl.Designer.cs">
+      <DependentUpon>CalculatingOffsetDescriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\RiffCalculatingOffsetDescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\RiffCalculatingOffsetDescriptionControl.Designer.cs">
+      <DependentUpon>RiffCalculatingOffsetDescriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\SortableFileListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\SortableFileListControl.Designer.cs">
+      <DependentUpon>SortableFileListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\audit\DatafileCheckerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\audit\DatafileCheckerForm.Designer.cs">
+      <DependentUpon>DatafileCheckerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\audit\DatafileCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\audit\DatafileCreatorForm.Designer.cs">
+      <DependentUpon>DatafileCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\audit\DatafileEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\audit\DatafileEditorForm.Designer.cs">
+      <DependentUpon>DatafileEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\audit\RebuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\audit\RebuilderForm.Designer.cs">
+      <DependentUpon>RebuilderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\audit\CollectionBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\audit\CollectionBuilderForm.Designer.cs">
+      <DependentUpon>CollectionBuilderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\compression\GzipCompressionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\compression\GzipCompressionForm.Designer.cs">
+      <DependentUpon>GzipCompressionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DllIcon.cs" />
+    <Compile Include="forms\examine\EmbeddedTagsUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\EmbeddedTagsUpdateForm.Designer.cs">
+      <DependentUpon>EmbeddedTagsUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\EmptyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\EmptyForm.Designer.cs">
+      <DependentUpon>EmptyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\examine\CrcCalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\CrcCalculatorForm.Designer.cs">
+      <DependentUpon>CrcCalculatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\CriAcbAwbExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\CriAcbAwbExtractorForm.Designer.cs">
+      <DependentUpon>CriAcbAwbExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\CriCpkExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\CriCpkExtractorForm.Designer.cs">
+      <DependentUpon>CriCpkExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractHcaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractHcaForm.Designer.cs">
+      <DependentUpon>ExtractHcaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractNintendoU8ArchiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractNintendoU8ArchiveForm.Designer.cs">
+      <DependentUpon>ExtractNintendoU8ArchiveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractOggForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractOggForm.Designer.cs">
+      <DependentUpon>ExtractOggForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\IsoExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\IsoExtractorForm.Designer.cs">
+      <DependentUpon>IsoExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\examine\SearchForFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\SearchForFileForm.Designer.cs">
+      <DependentUpon>SearchForFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\examine\TagViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\TagViewerForm.Designer.cs">
+      <DependentUpon>TagViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ByteRemoverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ByteRemoverForm.Designer.cs">
+      <DependentUpon>ByteRemoverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractAdxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractAdxForm.Designer.cs">
+      <DependentUpon>ExtractAdxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractCdxaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractCdxaForm.Designer.cs">
+      <DependentUpon>ExtractCdxaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractSonyAdpcmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\ExtractSonyAdpcmForm.Designer.cs">
+      <DependentUpon>ExtractSonyAdpcmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\MidiExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\MidiExtractorForm.Designer.cs">
+      <DependentUpon>MidiExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\OffsetFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\OffsetFinderForm.Designer.cs">
+      <DependentUpon>OffsetFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\compression\ZlibCompressionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\compression\ZlibCompressionForm.Designer.cs">
+      <DependentUpon>ZlibCompressionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\SavePresetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\SavePresetForm.Designer.cs">
+      <DependentUpon>SavePresetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\UnpackNintendoWadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\UnpackNintendoWadForm.Designer.cs">
+      <DependentUpon>UnpackNintendoWadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\VfsExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\VfsExtractorForm.Designer.cs">
+      <DependentUpon>VfsExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Gbs_GbsToM3uForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Gbs_GbsToM3uForm.Designer.cs">
+      <DependentUpon>Gbs_GbsToM3uForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Genh_CreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Genh_CreatorForm.Designer.cs">
+      <DependentUpon>Genh_CreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\hoot\HootAuditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\hoot\HootAuditorForm.Designer.cs">
+      <DependentUpon>HootAuditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\hoot\XmlBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\hoot\XmlBuilderForm.Designer.cs">
+      <DependentUpon>XmlBuilderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ListBoxFileInfoObject.cs" />
+    <Compile Include="forms\ListViewColumnSorter.cs" />
+    <Compile Include="forms\other\ExternalListFileRenamerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\other\ExternalListFileRenamerForm.Designer.cs">
+      <DependentUpon>ExternalListFileRenamerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\other\InterleaverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\other\InterleaverForm.Designer.cs">
+      <DependentUpon>InterleaverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\other\InternalNameFileRenamerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\other\InternalNameFileRenamerForm.Designer.cs">
+      <DependentUpon>InternalNameFileRenamerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\nsf\Nsfe2NsfM3uForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\nsf\Nsfe2NsfM3uForm.Designer.cs">
+      <DependentUpon>Nsfe2NsfM3uForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\nsf\NsfToM3uForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\nsf\NsfToM3uForm.Designer.cs">
+      <DependentUpon>NsfToM3uForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\OffsetDescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\OffsetDescriptionControl.Designer.cs">
+      <DependentUpon>OffsetDescriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\stream\PosFileCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\stream\PosFileCreatorForm.Designer.cs">
+      <DependentUpon>PosFileCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\stream\MpegDemuxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\stream\MpegDemuxForm.Designer.cs">
+      <DependentUpon>MpegDemuxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\stream\XmaConvertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\stream\XmaConvertForm.Designer.cs">
+      <DependentUpon>XmaConvertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\stream\XmashMashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\stream\XmashMashForm.Designer.cs">
+      <DependentUpon>XmashMashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\EasyPsfDriverExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\EasyPsfDriverExtractorForm.Designer.cs">
+      <DependentUpon>EasyPsfDriverExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2DataFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2DataFinderForm.Designer.cs">
+      <DependentUpon>Psf2DataFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2SettingsUpdaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2SettingsUpdaterForm.Designer.cs">
+      <DependentUpon>Psf2SettingsUpdaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\PsfDataFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\PsfDataFinderForm.Designer.cs">
+      <DependentUpon>PsfDataFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\PsfStubMakerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\PsfStubMakerForm.Designer.cs">
+      <DependentUpon>PsfStubMakerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\examine\SingleTagUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\SingleTagUpdateForm.Designer.cs">
+      <DependentUpon>SingleTagUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\SnakebiteGuiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\SnakebiteGuiForm.Designer.cs">
+      <DependentUpon>SnakebiteGuiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TreeViewVgmtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TreeViewVgmtForm.Designer.cs">
+      <DependentUpon>TreeViewVgmtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\PspSeqDataFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\PspSeqDataFinderForm.Designer.cs">
+      <DependentUpon>PspSeqDataFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\PsxSepToSeqExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\PsxSepToSeqExtractorForm.Designer.cs">
+      <DependentUpon>PsxSepToSeqExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\SsfMakeAdvancedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\SsfMakeAdvancedForm.Designer.cs">
+      <DependentUpon>SsfMakeAdvancedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\VabSplitterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\VabSplitterForm.Designer.cs">
+      <DependentUpon>VabSplitterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\examine\VgmTagsUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\VgmTagsUpdateForm.Designer.cs">
+      <DependentUpon>VgmTagsUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Vgm_VgmTagEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Vgm_VgmTagEditorForm.Designer.cs">
+      <DependentUpon>Vgm_VgmTagEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\NdsTo2sfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\NdsTo2sfForm.Designer.cs">
+      <DependentUpon>NdsTo2sfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\TwoSfTagsMigratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\TwoSfTagsMigratorForm.Designer.cs">
+      <DependentUpon>TwoSfTagsMigratorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\XsfTagEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\XsfTagEditorForm.Designer.cs">
+      <DependentUpon>XsfTagEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\examine\XsfTagsUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\examine\XsfTagsUpdateForm.Designer.cs">
+      <DependentUpon>XsfTagsUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Make2sfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Make2sfForm.Designer.cs">
+      <DependentUpon>Make2sfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\RecompressDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\RecompressDataForm.Designer.cs">
+      <DependentUpon>RecompressDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\SdatOptimizerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\SdatOptimizerForm.Designer.cs">
+      <DependentUpon>SdatOptimizerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\TwoSfTimerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\TwoSfTimerForm.Designer.cs">
+      <DependentUpon>TwoSfTimerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Bin2PsfFrontEndForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Bin2PsfFrontEndForm.Designer.cs">
+      <DependentUpon>Bin2PsfFrontEndForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Mkpsf2FrontEndForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Mkpsf2FrontEndForm.Designer.cs">
+      <DependentUpon>Mkpsf2FrontEndForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2SqExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2SqExtractorForm.Designer.cs">
+      <DependentUpon>Psf2SqExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2TimerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2TimerForm.Designer.cs">
+      <DependentUpon>Psf2TimerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2ToPsf2LibForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Psf2ToPsf2LibForm.Designer.cs">
+      <DependentUpon>Psf2ToPsf2LibForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\PsfTimerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\PsfTimerForm.Designer.cs">
+      <DependentUpon>PsfTimerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\SdatExtractorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\SdatExtractorForm.Designer.cs">
+      <DependentUpon>SdatExtractorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\extraction\SdatFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\extraction\SdatFinderForm.Designer.cs">
+      <DependentUpon>SdatFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\SsfMakeFrontEndForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\SsfMakeFrontEndForm.Designer.cs">
+      <DependentUpon>SsfMakeFrontEndForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\SsfSeqTonExtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\SsfSeqTonExtForm.Designer.cs">
+      <DependentUpon>SsfSeqTonExtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\UnpackPsf2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\UnpackPsf2Form.Designer.cs">
+      <DependentUpon>UnpackPsf2Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\xsf\Xsf2ExeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\xsf\Xsf2ExeForm.Designer.cs">
+      <DependentUpon>Xsf2ExeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ZZZ_NotYetImplemented.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ZZZ_NotYetImplemented.Designer.cs">
+      <DependentUpon>ZZZ_NotYetImplemented.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\audit\CollectionBuilderForm.resx">
+      <DependentUpon>CollectionBuilderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\audit\DatafileCheckerForm.resx">
+      <DependentUpon>DatafileCheckerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\audit\DatafileCreatorForm.resx">
+      <DependentUpon>DatafileCreatorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\audit\RebuilderForm.resx">
+      <DependentUpon>RebuilderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\EmbeddedTagsUpdateForm.resx">
+      <DependentUpon>EmbeddedTagsUpdateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\TagViewerForm.resx">
+      <DependentUpon>TagViewerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\CriAcbAwbExtractorForm.resx">
+      <DependentUpon>CriAcbAwbExtractorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\CriCpkExtractorForm.resx">
+      <DependentUpon>CriCpkExtractorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\OffsetFinderForm.resx">
+      <DependentUpon>OffsetFinderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Gbs_GbsToM3uForm.resx">
+      <DependentUpon>Gbs_GbsToM3uForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\hoot\XmlBuilderForm.resx">
+      <DependentUpon>XmlBuilderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\nsf\Nsfe2NsfM3uForm.resx">
+      <DependentUpon>Nsfe2NsfM3uForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\SingleTagUpdateForm.resx">
+      <DependentUpon>SingleTagUpdateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\other\ExternalListFileRenamerForm.resx">
+      <DependentUpon>ExternalListFileRenamerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\SdatOptimizerForm.resx">
+      <DependentUpon>SdatOptimizerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\TwoSfTimerForm.resx">
+      <DependentUpon>TwoSfTimerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Bin2PsfFrontEndForm.resx">
+      <DependentUpon>Bin2PsfFrontEndForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Mkpsf2FrontEndForm.resx">
+      <DependentUpon>Mkpsf2FrontEndForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Psf2SqExtractorForm.resx">
+      <DependentUpon>Psf2SqExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Psf2TimerForm.resx">
+      <DependentUpon>Psf2TimerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Psf2ToPsf2LibForm.resx">
+      <DependentUpon>Psf2ToPsf2LibForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\SdatExtractorForm.resx">
+      <DependentUpon>SdatExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\SdatFinderForm.resx">
+      <DependentUpon>SdatFinderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\SsfMakeFrontEndForm.resx">
+      <DependentUpon>SsfMakeFrontEndForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\SsfSeqTonExtForm.resx">
+      <DependentUpon>SsfSeqTonExtForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\UnpackPsf2Form.resx">
+      <DependentUpon>UnpackPsf2Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Xsf2ExeForm.resx">
+      <DependentUpon>Xsf2ExeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ZZZ_NotYetImplemented.resx">
+      <DependentUpon>ZZZ_NotYetImplemented.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools\examine\ExamineChecksumGeneratorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\examine\ExamineSearchForFileWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ByteRemoverWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractAdxWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractCdxaWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractCriAcbAwbWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractCriCpkWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractHcaWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractNintendoU8ArchiveWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractOggWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\IsoExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractMidiWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ExtractSonyAdpcmWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\GzipExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\UnpackNintendoWadWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\ISerializablePreset.cs" />
+    <Compile Include="tools\extract\OffsetFinder.cs" />
+    <Compile Include="tools\extract\OffsetFinderStatic.cs" />
+    <Compile Include="tools\extract\OffsetFinderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\SimpleCutterSnakebiteWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\VfsExtractor.cs" />
+    <Compile Include="tools\extract\VfsExtractorStatic.cs" />
+    <Compile Include="tools\extract\VfsExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\extract\ZlibExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\gbs\GbsM3uBuilderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\genh\GenhCreatorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\hoot\HootAuditorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\hoot\HootXmlBuilderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\MdxUtil.cs" />
+    <Compile Include="tools\nds\SdatExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\nds\SdatFinderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\nsf\NsfeM3uBuilderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\other\ExternalListFileRenamerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\other\InternalNameFileRenamerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\SerializablePresetCommon.cs" />
+    <Compile Include="tools\stream\MpegDemuxWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\stream\PosFileCreatorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\stream\XmaConverter.cs" />
+    <Compile Include="tools\stream\XmaConverterStatic.cs" />
+    <Compile Include="tools\stream\XmaConverterWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\stream\XmashMashWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\TreeBuilderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\vgm\VgmTagUpdaterWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Bin2PsfWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\EasyPsfDriverExtractionWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Mk2sfWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\MkPsf2Worker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\NdsTo2sfWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Psf2DataFinderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Psf2SettingsUpdaterWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Psf2SqExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Psf2TimerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Psf2toPsf2LibWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\PsfDataFinderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\PsfStubMakerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\PspSeqDataFinderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\PsxSepToSeqExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\PsfTimerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\SdatOptimizerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\SsfMakeAdvancedWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\SsfMakeWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\SsfSeqTonExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Time2sfWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\UnpkPsf2Worker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\VabSplitterWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\Xsf2sfTagMigratorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\XsfCompressedProgramExtractorWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\XsfRecompressDataWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tools\xsf\XsfTagUpdaterWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="credits.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psf2\mkpsf2.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\sox\dir.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ssf\seqext.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ssf\ssfinfo\ssfinfo.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ssf\ssfmake\ssfmake.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ssf\ssftime.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\ssf\tonext.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\xma\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="history.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="hoot\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ICSharpCode.SharpZipLib.dll.COPYING.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="examine\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="external\psfpoint.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\3dscseq.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\3dscstm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\3dscwav.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\3ds_ktss.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\arcbmiidx2dx.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\arcbmiidxsd9.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\mswma.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ndssmd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ndssseq.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ndsstrm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ndsswav.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ndsswd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2adsss2type1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2adsss2type2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2adsss2type3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2bmdx.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2hd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2ild.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2kces.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2sq.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2ster.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2svag.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2vagptype1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2vagptype2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2vagptype3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ps2vsf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\psxseq.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\ndssdat.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\psxvab.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\riff.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\sddrvs.tsk.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\wiirbnk.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\wiirseq.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\wiirwar.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\wiirwav.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\wiirwsd.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\dcdtpk.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\AdvancedCutter\x360tri-ace-iu-so4-wavestrm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\VFSExtractor\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\XmaConverter\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\XmaConverter\xbox360_blur.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\XmaConverter\xbox360_dead_rising.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\XmaConverter\xbox360_fallout_new_vegas.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugins\XmaConverter\xbox360_infinite_undiscovery.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="controls\ByteSearchCalculatingOffsetDescriptionControl.resx">
+      <DependentUpon>ByteSearchCalculatingOffsetDescriptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\CalculatingOffsetDescriptionControl.resx">
+      <DependentUpon>CalculatingOffsetDescriptionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\RiffCalculatingOffsetDescriptionControl.resx">
+      <DependentUpon>RiffCalculatingOffsetDescriptionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\SortableFileListControl.resx">
+      <DependentUpon>SortableFileListControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\audit\DatafileEditorForm.resx">
+      <DependentUpon>DatafileEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\compression\GzipCompressionForm.resx">
+      <DependentUpon>GzipCompressionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\CrcCalculatorForm.resx">
+      <DependentUpon>CrcCalculatorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\SearchForFileForm.resx">
+      <DependentUpon>SearchForFileForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ByteRemoverForm.resx">
+      <DependentUpon>ByteRemoverForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ExtractAdxForm.resx">
+      <DependentUpon>ExtractAdxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ExtractCdxaForm.resx">
+      <DependentUpon>ExtractCdxaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ExtractHcaForm.resx">
+      <DependentUpon>ExtractHcaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ExtractNintendoU8ArchiveForm.resx">
+      <DependentUpon>ExtractNintendoU8ArchiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ExtractOggForm.resx">
+      <DependentUpon>ExtractOggForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\ExtractSonyAdpcmForm.resx">
+      <DependentUpon>ExtractSonyAdpcmForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\IsoExtractorForm.resx">
+      <DependentUpon>IsoExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\MidiExtractorForm.resx">
+      <DependentUpon>MidiExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\SavePresetForm.resx">
+      <DependentUpon>SavePresetForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\SnakebiteGuiForm.resx">
+      <DependentUpon>SnakebiteGuiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\compression\ZlibCompressionForm.resx">
+      <DependentUpon>ZlibCompressionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\UnpackNintendoWadForm.resx">
+      <DependentUpon>UnpackNintendoWadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\extraction\VfsExtractorForm.resx">
+      <DependentUpon>VfsExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Genh_CreatorForm.resx">
+      <DependentUpon>Genh_CreatorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\hoot\HootAuditorForm.resx">
+      <DependentUpon>HootAuditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\other\InterleaverForm.resx">
+      <DependentUpon>InterleaverForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\other\InternalNameFileRenamerForm.resx">
+      <DependentUpon>InternalNameFileRenamerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\nsf\NsfToM3uForm.resx">
+      <DependentUpon>NsfToM3uForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\OffsetDescriptionControl.resx">
+      <DependentUpon>OffsetDescriptionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\stream\PosFileCreatorForm.resx">
+      <DependentUpon>PosFileCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\stream\MpegDemuxForm.resx">
+      <DependentUpon>MpegDemuxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\stream\XmaConvertForm.resx">
+      <DependentUpon>XmaConvertForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\stream\XmashMashForm.resx">
+      <DependentUpon>XmashMashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\EasyPsfDriverExtractorForm.resx">
+      <DependentUpon>EasyPsfDriverExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Psf2DataFinderForm.resx">
+      <DependentUpon>Psf2DataFinderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Psf2SettingsUpdaterForm.resx">
+      <DependentUpon>Psf2SettingsUpdaterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\PsfDataFinderForm.resx">
+      <DependentUpon>PsfDataFinderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\PsfStubMakerForm.resx">
+      <DependentUpon>PsfStubMakerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\TreeViewVgmtForm.resx">
+      <DependentUpon>TreeViewVgmtForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\PspSeqDataFinderForm.resx">
+      <DependentUpon>PspSeqDataFinderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\PsxSepToSeqExtractorForm.resx">
+      <DependentUpon>PsxSepToSeqExtractorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\SsfMakeAdvancedForm.resx">
+      <DependentUpon>SsfMakeAdvancedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\VabSplitterForm.resx">
+      <DependentUpon>VabSplitterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\VgmTagsUpdateForm.resx">
+      <DependentUpon>VgmTagsUpdateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Vgm_VgmTagEditorForm.resx">
+      <DependentUpon>Vgm_VgmTagEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\examine\XsfTagsUpdateForm.resx">
+      <DependentUpon>XsfTagsUpdateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\NdsTo2sfForm.resx">
+      <DependentUpon>NdsTo2sfForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\TwoSfTagsMigratorForm.resx">
+      <DependentUpon>TwoSfTagsMigratorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\Make2sfForm.resx">
+      <DependentUpon>Make2sfForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\PsfTimerForm.resx">
+      <DependentUpon>PsfTimerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\RecompressDataForm.resx">
+      <DependentUpon>RecompressDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\xsf\XsfTagEditorForm.resx">
+      <DependentUpon>XsfTagEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\bolo2.gif" />
+    <Content Include="Resources\audioCd.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Button-Refresh-16x16.png" />
+    <Content Include="Resources\emptyCd.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\genericFile.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\normalFolder.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\openFolder.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="rips\dir.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config" />
+    <None Include="db\collection.s3db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf2\modules\cdvdnul.irx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf2\modules\fakesif.irx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf2\modules\myhost.irx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf2\modules\psf2.irx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\psf2\modules\sq.irx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_DSP10040.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_DSP20040.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_DSP4040.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_DSP8040.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_SEQ07000.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_SEQ08000.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_SEQ10000.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="external\ssf\ssfmake\GEN_SEQ20000.MAP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\toolbox.bmp" />
+    <None Include="Resources\ToolBox-2.ico" />
+    <None Include="Resources\fs.jpg" />
+    <None Include="xsd\datafile.dtd" />
+    <None Include="xsd\datafile.xsd" />
+    <None Include="xsd\hoot.dtd" />
+    <None Include="xsd\hoot.xsd" />
+    <None Include="xsd\OffsetFinder.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="xsd\VfsExtractor.xsd" />
+    <None Include="xsd\XmaConverter.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dbutil\dbutil.csproj">
+      <Project>{6ECB41D4-6EC9-44D3-B3E9-D8478968116E}</Project>
+      <Name>dbutil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\format\format.csproj">
+      <Project>{3951D6E5-61BE-4D7C-A464-F44D98E9CE83}</Project>
+      <Name>format</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\vgmtplugin\vgmtplugin.csproj">
+      <Project>{EE513748-B90B-4F70-8281-A91110BC06BD}</Project>
+      <Name>vgmtplugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\vgmtutil\vgmtutil.csproj">
+      <Project>{3CE76EEC-D3BC-4AB4-8C54-D2EAFFDADA47}</Project>
+      <Name>vgmtutil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="external\psf\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if not exist ".\lib" mkdir lib
+move format.dll ".\lib\format.dll"
+move vgmtutil.dll ".\lib\vgmtutil.dll"
+move vgmtplugin.dll ".\lib\vgmtplugin.dll"
+move dbutil.dll ".\lib\dbutil.dll"
+move ICSharpCode.SharpZipLib.dll ".\lib\ICSharpCode.SharpZipLib.dll"
+move ICSharpCode.SharpZipLib.dll.COPYING.txt ".\lib\ICSharpCode.SharpZipLib.dll.COPYING.txt"
+move System.Data.SQLite.dll ".\lib\System.Data.SQLite.dll"
+move System.Data.SQLite.xml ".\lib\System.Data.SQLite.xml"
+del *.pdb
+del "Bass.Net.dll"
+del "Bass.Net.xml"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Header -->
+  <xs:complexType name="Header">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="FormatName" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Author" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Endianess -->
+  <xs:simpleType name="Endianness">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="little" />
+      <xs:enumeration value="big" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- XMA Type -->
+  <xs:simpleType name="XmaType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- RIFF Frequency -->
+  <xs:simpleType name="RiffFrequency">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="22050" />
+      <xs:enumeration value="24000" />
+      <xs:enumeration value="32000" />
+      <xs:enumeration value="44100" />
+      <xs:enumeration value="48000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- RIFF Channels -->
+  <xs:simpleType name="RiffChannels">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="mono" />
+      <xs:enumeration value="stereo" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--  xma_parse.exe Parameters -->
+  <xs:complexType name="XmaParseParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <!--- XMA Parse Options -->
+      <xs:element name="XmaType" type="XmaType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RebuildXma" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IgnoreXmaParseErrors" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      
+      <!--- Start Offset -->
+      <xs:element name="UseStaticStartOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UseDynamicStartOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SetStartOffsetAfterRiffHeader" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      
+      <xs:element name="StartOffsetStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="StartOffsetOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StartOffsetOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StartOffsetOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+
+      <!--- Block Size -->
+      <xs:element name="UseStaticBlockSize" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UseDynamicBlockSize" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="BlockSizeStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="BlockSizeOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BlockSizeOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BlockSizeOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+
+      <!--- Data Size -->
+      <xs:element name="UseStaticDataSize" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UseDynamicDataSize" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GetDataSizeFromRiffHeader" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="DataSizeStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="DataSizeOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DataSizeOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DataSizeOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+      
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--  RIFF Parameters -->
+  <xs:complexType name="RiffParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <!-- Frequency -->
+      <xs:element name="UseStaticFrequency" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GetFrequencyFromOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GetFrequencyFromRiffHeader" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      
+      <xs:element name="FrequencyStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="FrequencyOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FrequencyOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FrequencyOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+
+      <!-- Channels -->
+      <xs:element name="UseStaticChannels" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GetChannelsFromOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GetChannelsFromRiffHeader" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      
+      <xs:element name="ChannelStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="ChannelOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ChannelOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ChannelOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>      
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--  POS File Parameters -->
+  <xs:complexType name="PosFileParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <!--- Start Offset -->
+      <xs:element name="UseStaticStartOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UseDynamicStartOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="StartOffsetStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="StartOffsetOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StartOffsetOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StartOffsetOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StartOffsetCalculation" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <!--- End Offset -->
+      <xs:element name="UseStaticEndOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UseDynamicEndOffset" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="EndOffsetStatic" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+      <xs:element name="EndOffsetOffset" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EndOffsetOffsetSize" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EndOffsetOffsetEndianess" type="Endianness" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EndOffsetCalculation" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--  WAV Conversion Parameters -->
+  <xs:complexType name="WavConversionParameters">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="UseXmaEncode" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="UseToWav" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Top Level Definition -->
+  <xs:element name="XmaConverterSettings">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="Header" type="Header" minOccurs="1" maxOccurs="1"/>
+        
+        <xs:element name="UseXmaParse" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="XmaParseParameters" type="XmaParseParameters" minOccurs="0" maxOccurs="1"/>
+
+        <xs:element name="AddRiffHeader" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="RiffParameters" type="RiffParameters" minOccurs="0" maxOccurs="1"/>
+
+        <xs:element name="CreatePosFile" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="PosFileParameters" type="PosFileParameters" minOccurs="0" maxOccurs="1"/>
+
+        <xs:element name="WavConversionParameters" type="WavConversionParameters" minOccurs="1" maxOccurs="1"/>        
+        <xs:element name="NotesOrWarnings" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
