@@ -124,7 +124,7 @@ namespace VGMToolbox.format
 
         #region Constants
 
-        public static readonly byte[] SIGNATURE_BYTES = new byte[] { 0x40, 0x55, 0x54, 0x46 };
+        public static readonly byte[] SIGNATURE_BYTES = new byte[] { 0x40, 0x55, 0x54, 0x46 };/*@UTF*/
         public const string LCG_SEED_KEY = "SEED";
         public const string LCG_INCREMENT_KEY = "INC";
         public const string TEMP_UTF_TABLE_FILE = "VGMT_UTF.BIN";

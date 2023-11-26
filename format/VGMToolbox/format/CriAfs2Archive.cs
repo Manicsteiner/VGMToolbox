@@ -56,7 +56,9 @@ namespace VGMToolbox.format
                     throw new FormatException(String.Format("ERROR, file count exceeds max value for ushort.  Please report this at official feedback forums (see 'Other' menu item).", fs.Name));
                 }
                 
-                this.ByteAlignment = ParseFile.ReadUintLE(fs, offset + 0xC);
+                this.ByteAlignment = ParseFile.ReadUshortLE(fs, offset + 0xC);
+                // maybe ushort? 0x172e0020 in "Yurucamp Have a nice day" and 0x2a760020 "Summertime Render Another Horizon", others 0x20
+
                 this.Files = new Dictionary<ushort, CriAfs2File>((int)this.FileCount);
 
                 CriAfs2File dummy;
@@ -65,8 +67,18 @@ namespace VGMToolbox.format
                 {
                     dummy = new CriAfs2File();
 
-                    dummy.CueId = ParseFile.ReadUshortLE(fs, offset + (0x10 + (2 * i)));
-                    dummy.FileOffsetRaw = ParseFile.ReadUintLE(fs, offset + (0x10 + (this.FileCount * 2) + (offsetFieldSize * i)));
+                    //CueID is ushort if byte in 0x06 is 02, uint if 04
+                    switch (this.Version[2])
+                    {
+                        case 4:
+                            dummy.CueId = (ushort)ParseFile.ReadUintLE(fs, offset + (0x10 + (this.Version[2] * i)));
+                            break;
+                        case 2:
+                        default:
+                            dummy.CueId = ParseFile.ReadUshortLE(fs, offset + (0x10 + (this.Version[2] * i)));
+                            break;
+                    }
+                    dummy.FileOffsetRaw = ParseFile.ReadUintLE(fs, offset + (0x10 + (this.FileCount * this.Version[2]) + (offsetFieldSize * i)));
                     
                     // mask off unneeded info
                     dummy.FileOffsetRaw &= offsetMask;
@@ -90,7 +102,7 @@ namespace VGMToolbox.format
                     // last file will use final offset entry
                     if (i == this.FileCount - 1)
                     {
-                        dummy.FileLength = (ParseFile.ReadUintLE(fs, offset + (0x10 + (this.FileCount * 2) + ((offsetFieldSize) * i)) + offsetFieldSize) + offset) - dummy.FileOffsetByteAligned;
+                        dummy.FileLength = (ParseFile.ReadUintLE(fs, offset + (0x10 + (this.FileCount * this.Version[2]) + ((offsetFieldSize) * i)) + offsetFieldSize) + offset) - dummy.FileOffsetByteAligned;
                     }
 
                     // else set length for previous cue id

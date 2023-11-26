@@ -248,9 +248,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\Ionic.Zip.XML" />
-    <Content Include="VGMToolbox\format\CueSharp.LICENSE.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="VGMToolbox\format\CueSharp.LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="external\psf\mk.bat">

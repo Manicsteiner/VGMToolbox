@@ -1483,7 +1483,7 @@ move ICSharpCode.SharpZipLib.dll ".\lib\ICSharpCode.SharpZipLib.dll"
 move ICSharpCode.SharpZipLib.dll.COPYING.txt ".\lib\ICSharpCode.SharpZipLib.dll.COPYING.txt"
 move System.Data.SQLite.dll ".\lib\System.Data.SQLite.dll"
 move System.Data.SQLite.xml ".\lib\System.Data.SQLite.xml"
-del *.pdb
+If $(ConfigurationName) == Release del *.pdb
 del "Bass.Net.dll"
 del "Bass.Net.xml"
 del "vgmtutil.dll.config"</PostBuildEvent>
