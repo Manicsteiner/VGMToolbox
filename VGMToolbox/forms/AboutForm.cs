@@ -14,8 +14,9 @@ namespace VGMToolbox.forms
         {
             InitializeComponent();
 
-            this.linkLabelHomePage.Links.Add(0, this.linkLabelHomePage.Text.Length, "http://sourceforge.net/projects/vgmtoolbox/");
-            this.linkLabelSupport.Links.Add(0, this.linkLabelSupport.Text.Length, "http://hcs64.com/mboard/forum.php?showthread=22580");
+            this.linkLabelHomePage.Links.Add(0, this.linkLabelHomePage.Text.Length, "https://sourceforge.net/projects/vgmtoolbox/");
+            this.linkLabelSupport.Links.Add(0, this.linkLabelSupport.Text.Length, "https://hcs64.com/mboard/forum.php?showthread=22580");
+            this.linkLabelGithub.Links.Add(0, this.linkLabelGithub.Text.Length, "https://github.com/Manicsteiner/VGMToolbox");
         }
 
         private void okButton_Click(object sender, EventArgs e)

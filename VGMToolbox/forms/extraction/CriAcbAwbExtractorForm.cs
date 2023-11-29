@@ -16,6 +16,7 @@ namespace VGMToolbox.forms.extraction
             this.lblTitle.Text = "CRI ACB/AWB Archive Extractor";
             this.tbOutput.Text = "Extract Files from CRI ACB/AWB Archives" + Environment.NewLine;
             this.tbOutput.Text += "*** For ACB/AWB pairs, only the ACB needs to be dropped." + Environment.NewLine;
+            this.tbOutput.Text += "*** If you encounter problems with the extract process, please try using VGMStream first." + Environment.NewLine;
 
             // hide the DoTask button since this is a drag and drop form
             this.btnDoTask.Hide();
